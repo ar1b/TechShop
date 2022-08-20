@@ -27,7 +27,7 @@ const ProductComponent = ({item}: ProductItemProps) => {
                     <FontAwesome
                       key={`${item.id}-${i}`}
                       style={styles.star} 
-                      name={ i < Math.floor(item.avgRating) ? 'star' : 'star-o'}
+                      name={ i < Math.floor(Number(item.avgRating)) ? 'star' : 'star-o'}
                       size={18} 
                       color={'#E47911'}/>
                   )
