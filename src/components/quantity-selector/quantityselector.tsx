@@ -1,6 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React, {useState} from 'react'
-import { faBoxOpen } from '@fortawesome/free-solid-svg-icons'
 
 const QuantitySelector = ({quantity, setQuantity}) => {
 
@@ -52,4 +51,5 @@ const styles = StyleSheet.create({
         color: '#007EB9'
     }
 })
+
 export default QuantitySelector;

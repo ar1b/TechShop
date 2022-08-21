@@ -5,6 +5,7 @@ import product from '../../data/product';
 import QuantitySelector from '../../components/quantity-selector/quantityselector';
 import Button from '../../components/button/button';
 import { Picker } from '@react-native-picker/picker';
+import ImageCarousel from '../../components/image-carousel/imagecarousel';
 
 const ProductScreen = () => {
 
@@ -14,9 +15,7 @@ const ProductScreen = () => {
   return (
     <View style={styles.root} >
       <Text style={styles.title}>{product.title}</Text>
-      {/*Image caorusel */}
-
-      {/*Option Selector */}
+      <ImageCarousel images={product.images} />
       <Picker
         selectedValue={selectedOption}
         onValueChange={(itemValue) => setSelectedOption(itemValue)}
@@ -26,23 +25,26 @@ const ProductScreen = () => {
         ))}
       </Picker>
 
-      {/*Price*/}
       <Text style={styles.price}>
-            {product.price}
-            {product.oldPrice && (
-                <Text style={styles.oldPrice}>${product.oldPrice}</Text>
-            )}
-        </Text>
+        {product.price}
+        {product.oldPrice && (
+          <Text style={styles.oldPrice}>${product.oldPrice}</Text>
+        )}
+      </Text>
 
-      {/*Description */}
       <Text style={styles.description}>{product.description}</Text>
 
-      {/*QUantity Selector*/}
       <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
  
-      {/*Button */}
-      <Button text={'Add to Cart'} onPress={() => {console.warn('add')}} containerStyles={{backgroundColor: '#E3C905'}}/>
-      <Button text={'Buy Now'}  onPress={() => {console.warn('Buy Now')}} />
+      <Button
+        text={'Add to Cart'} 
+        onPress={() => {console.warn('add')}} 
+        containerStyles={{backgroundColor: '#E3C905'}}
+      />
+      <Button 
+        text={'Buy Now'}  
+        onPress={() => {console.warn('Buy Now')}} 
+      />
     </View>
   )
 }
