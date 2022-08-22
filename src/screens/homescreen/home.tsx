@@ -4,7 +4,7 @@ import ProductComponent from '../../components/product-item/product-component'
 import products from '../../data/products'
 
 
-const HomeScreen = () => {
+const HomeScreen = ({searchValue}: {searchValue: string} ) => {
   return (
     <View style={styles.page}>
         {/*Rendering the Product Component*/}
@@ -18,7 +18,6 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     page: {
-
     },
 
     

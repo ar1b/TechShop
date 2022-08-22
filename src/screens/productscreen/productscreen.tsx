@@ -1,5 +1,6 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React, {useState} from 'react'
+import { useRoute } from '@react-navigation/native';
 import styles from '../productscreen/styles'; 
 import product from '../../data/product';
 import QuantitySelector from '../../components/quantity-selector/quantityselector';
@@ -12,8 +13,10 @@ const ProductScreen = () => {
   const [selectedOption, setSelectedOption] = useState(product.options ? product.options[0] : null);
   const [quantity, setQuantity] = useState(1)
 
+  const route = useRoute()
+  
   return (
-    <View style={styles.root} >
+    <ScrollView style={styles.root} >
       <Text style={styles.title}>{product.title}</Text>
       <ImageCarousel images={product.images} />
       <Picker
@@ -45,7 +48,7 @@ const ProductScreen = () => {
         text={'Buy Now'}  
         onPress={() => {console.warn('Buy Now')}} 
       />
-    </View>
+    </ScrollView>
   )
 }
 
